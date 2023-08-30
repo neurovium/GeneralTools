@@ -1,3 +1,26 @@
+Acticvate the environment:
+$Conda activate nwb
+
+Go to the directory containing the setup.py file and run the following command:
+
+$(nwb) nima@neurobit:/media/nima/Kepler/SciCodes/GeneralTools$ python setup.py bdist_wheel sdist
+
+$(nwb) nima@neurobit:/media/nima/Kepler/SciCodes/GeneralTools$ pip install .
+
+$(nwb) nima@neurobit:/media/nima/Kepler/SciCodes/GeneralTools$ pip show prjtools
+
+It should give you this output:
+Name: prjtools
+Version: 0.1
+Summary: A collection of general utility tools
+Home-page: 
+Author: Nima Dehghani, MIT @neurovium
+Author-email: 
+License: MIT
+Location: /home/nima/anaconda3/envs/nwb/lib/python3.11/site-packages
+Requires: 
+Required-by:
+<!-- 
 # In your Python interpreter, print sys.path to make sure that the site-packages directory of your nwb environment is included.
 python
 
@@ -65,7 +88,7 @@ Navigate to the directory containing your meta.yaml and run:
 bash
 Copy code
 conda build .
-This will produce a .tar.bz2 package file in the conda-bld directory.
+This will produce a .tar.bz2 package file in the conda-bld directory. -->
 
 Step 3: Install the Package
 You can install this package locally into your Conda environment with:

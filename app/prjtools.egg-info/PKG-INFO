@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: prjtools
+Version: 0.1
+Summary: A collection of general utility tools
+Author: Nima Dehghani, MIT @neurovium
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+License-File: LICENSE
+
+# init_project
+for creating project structure
