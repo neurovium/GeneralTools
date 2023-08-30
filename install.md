@@ -20,75 +20,91 @@ License: MIT
 Location: /home/nima/anaconda3/envs/nwb/lib/python3.11/site-packages
 Requires: 
 Required-by:
-<!-- 
-# In your Python interpreter, print sys.path to make sure that the site-packages directory of your nwb environment is included.
-python
-
-'''
-import sys
-print(sys.path)
-
-sys.path.append('/media/nima/Kepler/SciCodes/')
-from GeneralTools import init_project
-'''
-
-# To remove generaltools and scicod from the sys path, you can use the following code:
-
-'''
-import sys
-
-# Get the current sys path.
-sys_path = sys.path
-
-# Remove generaltools and scicod from the sys path.
-sys_path = [p for p in sys_path if not p.startswith("/media/nima/Kepler/SciCodes/GeneralTools") and not p.startswith("/media/nima/Kepler/SciCodes/scicod")]
-
-# Set the new sys path.
-sys.path = sys_path
-
-# Print the new sys path.
-print(sys.path)
-'''
 
 
-#===================================================================================================
+Then use it like this:
+(nwb) nima@neurobit:/media/nima/Kepler/SciCodes/GeneralTools$ python
+Python 3.11.5 | packaged by conda-forge | (main, Aug 27 2023, 03:34:09) [GCC 12.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+$>>> from prjtools import init_project
+$>>> init_project("GridHypergraph-py", authors="neurovium", force=True) 
+Initialized empty Git repository in /media/nima/Kepler/SciCodes/GeneralTools/GridHypergraph-py/.git/
+Project 'GridHypergraph-py' has been initialized.
 
- step-by-step guide on how to proceed.
+or
+$>>> init_project("/media/nima/Kepler/SciCodes/DANDI-SargoliniMoser/GridHypergraph-py", authors="neurovium", force=True) 
+Initialized empty Git repository in /media/nima/Kepler/SciCodes/DANDI-SargoliniMoser/GridHypergraph-py/.git/
+Project '/media/nima/Kepler/SciCodes/DANDI-SargoliniMoser/GridHypergraph-py' has been initialized.
 
-Step 1: Create meta.yaml
-Create a meta.yaml file in a separate folder (not within your GeneralTools folder to keep it clean). Here's a sample meta.yaml based on your project:
+% <!-- 
+% # In your Python interpreter, print sys.path to make sure that the site-packages directory of your nwb environment is included.
+% python
 
-yaml
-Copy code
-package:
-  name: GeneralTools
-  version: 0.1
+% '''
+% import sys
+% print(sys.path)
 
-source:
-  path: /path/to/your/GeneralTools
+% sys.path.append('/media/nima/Kepler/SciCodes/')
+% from GeneralTools import init_project
+% '''
 
-requirements:
-  build:
-    - python
-  run:
-    - python
+% # To remove generaltools and scicod from the sys path, you can use the following code:
 
-about:
-  home: your_project_homepage
-  license: your_license
-  summary: 'A collection of general utility tools inspired by DrWatson.jl'
+% '''
+% import sys
 
-build:
-  script: python setup.py install
-Replace /path/to/your/GeneralTools with the actual path to your GeneralTools folder.
+% # Get the current sys path.
+% sys_path = sys.path
 
-Step 2: Build the Conda Package
-Navigate to the directory containing your meta.yaml and run:
+% # Remove generaltools and scicod from the sys path.
+% sys_path = [p for p in sys_path if not p.startswith("/media/nima/Kepler/SciCodes/GeneralTools") and not p.startswith("/media/nima/Kepler/SciCodes/scicod")]
 
-bash
-Copy code
-conda build .
-This will produce a .tar.bz2 package file in the conda-bld directory. -->
+% # Set the new sys path.
+% sys.path = sys_path
+
+% # Print the new sys path.
+% print(sys.path)
+% '''
+
+
+% #===================================================================================================
+
+%  step-by-step guide on how to proceed.
+
+% Step 1: Create meta.yaml
+% Create a meta.yaml file in a separate folder (not within your GeneralTools folder to keep it clean). Here's a sample meta.yaml based on your project:
+
+% yaml
+% Copy code
+% package:
+%   name: GeneralTools
+%   version: 0.1
+
+% source:
+%   path: /path/to/your/GeneralTools
+
+% requirements:
+%   build:
+%     - python
+%   run:
+%     - python
+
+% about:
+%   home: your_project_homepage
+%   license: your_license
+%   summary: 'A collection of general utility tools inspired by DrWatson.jl'
+
+% build:
+%   script: python setup.py install
+% Replace /path/to/your/GeneralTools with the actual path to your GeneralTools folder.
+
+% Step 2: Build the Conda Package
+% Navigate to the directory containing your meta.yaml and run:
+
+% bash
+% Copy code
+% conda build .
+% This will produce a .tar.bz2 package file in the conda-bld directory. -->
 
 Step 3: Install the Package
 You can install this package locally into your Conda environment with:
