@@ -15,7 +15,7 @@ init_project("MyPythonProject", authors="John Doe", force=True)  # force=True ov
 ## Output Structure:
 MyPythonProject
 │
-├── _research
+├── _research  <- Main project directory. Initialized as a Git repository.
 │   └── tmp
 │
 ├── data
